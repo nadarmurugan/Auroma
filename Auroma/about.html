@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Auroma</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+  /* General Styles */
+  body {
+    font-family: 'Dancing Script', cursive;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    text-align: center;
+    color: white;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fffefe;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    color: #b76e79;
+}
+
+/* Navigation Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-icon {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.nav-icon:hover {
+    transform: scale(1.2);
+    color: #f7f1e3;
+}
+
+/* Back Button */
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.back-btn i {
+    margin-right: 5px;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+.hero {
+            padding: 100px 20px;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+        }
+        .hero img {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .about {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .about:hover {
+            transform: scale(1.05);
+        }
+        .video-section {
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .video-section iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 20px;
+        }
+        footer {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            margin: 50px auto;
+            width: 90%;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .social-links a:hover {
+            transform: scale(1.2);
+            color: #ffebcc;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-spray-can"></i> Auroma
+        </div>
+    
+        <nav class="nav-icons">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+    
+            <a href="home.html" class="nav-icon" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="products.html" class="nav-icon" title="Products">
+                <i class="fas fa-box-open"></i>
+            </a>
+            <a href="cart.html" class="nav-icon" title="Cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="wish.html" class="nav-icon" title="Wishlist">
+                <i class="fas fa-heart"></i>
+            </a>
+            <a href="profile.html" class="nav-icon" title="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </nav>
+    </header>
+
+
+    <section class="hero">
+        <h1>Welcome to Auroma</h1>
+        <p>Embracing elegance, crafting memories.</p>
+        <img src="img/bg2.jpg" alt="Elegant Perfume Collection">
+    </section>
+
+    <section class="about">
+        <h2>Our Story</h2>
+        <p>At Auroma, we believe in creating fragrances that leave an unforgettable impression. Our journey began with a passion for scents that capture moments and emotions.</p>
+        <ul>
+            <li>Handcrafted with premium ingredients</li>
+            <li>Unique and long-lasting fragrance blends</li>
+            <li>Inspired by nature and cultural heritage</li>
+            <li>Commitment to sustainability and cruelty-free practices</li>
+            <li>Each bottle tells a unique story</li>
+        </ul>
+    </section>
+
+    <section class="video-section">
+        <h2>Discover Our World</h2>
+        <p>Experience the essence of Auroma through our video.</p>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+        <p>&copy; 2024 Auroma. All rights reserved.</p>
+    </footer>
+
+</body>
+<script>
+            // Go back to the previous page
+function goBack() {
+    window.history.back();
+}
+</script>
+</html>
