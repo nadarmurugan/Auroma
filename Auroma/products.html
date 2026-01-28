@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auroma - Perfume Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb, #2575fc, #ff758c);
+            text-align: center;
+            color: white;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 5px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #fffefe;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #b76e79;
+        }
+        .icons {
+            font-size: 22px;
+        }
+        .icons i {
+            margin: 0 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .icons i:hover {
+            color: #ff758c;
+        }
+        nav {
+            background: rgb(0, 0, 0);
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 30px;
+            margin: 10px;
+        }
+        .cart-icon {
+    text-decoration: none;  /* Remove underline */
+    color: #ffffff;  /* Default color */
+    font-size: 24px; /* Adjust icon size */
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.cart-icon:hover {
+    color: #ff0202; /* Change color on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.cart-icon i {
+    cursor: pointer;
+}
+
+      
+        .search-container {
+        position: relative;
+        width: 80%;
+        margin: 15px auto;
+    }
+
+    .search-container i {
+        margin-top: 25px;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: gray;
+        font-size: 18px;
+    }
+
+    #search {
+        margin-top: 50px;
+        padding: 12px 15px 12px 40px; /* Left padding for the icon */
+        width: 100%;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        text-align: left;
+    }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px;
+        }
+        .category {
+            background: rgb(0, 0, 0);
+            padding: 12px 25px;
+            border-radius: 30px;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        .category:hover {
+            background: #d64def;
+            color: white;
+            transform: scale(1.1);
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            background: linear-gradient(to right, #1c0138, #001334);
+            border-radius: 20px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+            width: 280px;
+            margin: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.08);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 15px;
+        }
+        button {
+            background: linear-gradient(90deg, #c793ff, #fb8ea0);
+            color: rgb(0, 0, 0);
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            margin-top: 10px;
+            transition: 0.3s;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            width: 100%;
+        }
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(90deg, #f3cad1, #cba6f4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-spray-can"></i> Auroma
+        </div>
+        <div class="icons">
+            <a href="home.html" class="cart-icon">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="products.html" class="cart-icon">
+                <i class="fas fa-box-open"></i>
+            </a>
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="wish.html" class="cart-icon">
+                <i class="fas fa-heart"></i>
+            </a>
+            <a href="profile.php" class="cart-icon">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </header>
+    
+   
+    
+    <div class="search-container">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search" placeholder="Search perfumes..." onkeyup="searchProducts()">
+    </div>
+    
+    
+    <div class="categories">
+        <div class="category" onclick="filterCategory('Floral')"><i class="fas fa-seedling"></i> Floral</div>
+        <div class="category" onclick="filterCategory('Woody')"><i class="fas fa-tree"></i> Woody</div>
+        <div class="category" onclick="filterCategory('Fresh')"><i class="fas fa-water"></i> Fresh</div>
+        <div class="category" onclick="filterCategory('Spicy')"><i class="fas fa-pepper-hot"></i> Spicy</div>
+    </div>
+    
+    <main id="products-grid"></main>
+    
+   <script>
+    let products = [
+    { id: 1, name: "Rose Essence", image: "scent/rose.jpg", price: "₹4,150", quantity: "50ml", category: "Floral" },
+    { id: 2, name: "Ocean Breeze", image: "scent/ocean.jpg", price: "₹4,980", quantity: "100ml", category: "Fresh" },
+    { id: 3, name: "Mystic Oud", image: "scent/oud.jpg", price: "₹6,600", quantity: "75ml", category: "Woody" },
+    { id: 4, name: "Vanilla Bliss", image: "scent/vanilla.jpg", price: "₹3,750", quantity: "50ml", category: "Spicy" },
+    { id: 5, name: "Lavender Mist", image: "scent/lavender.jpg", price: "₹4,500", quantity: "60ml", category: "Floral" },
+    { id: 6, name: "Sandalwood Charm", image: "scent/sandalwood.jpg", price: "₹5,890", quantity: "90ml", category: "Woody" },
+    { id: 7, name: "Citrus Burst", image: "scent/citrus.jpg", price: "₹3,400", quantity: "50ml", category: "Fresh" },
+    { id: 8, name: "Cinnamon Spice", image: "scent/cinnamon.jpg", price: "₹5,500", quantity: "80ml", category: "Spicy" }
+];
+
+function displayProducts(filteredProducts = products) {
+    let container = document.getElementById("products-grid");
+    container.innerHTML = "";
+    filteredProducts.forEach(product => {
+        container.innerHTML += `
+            <div class='card'>
+                <img src='${product.image}' alt='${product.name}'>
+                <h3>${product.name}</h3>
+                <p>Price: ${product.price}</p>
+                <p>Quantity: ${product.quantity}</p>
+                <button class='add-to-cart' data-id='${product.id}' data-name='${product.name}' data-price='${product.price}' data-quantity='${product.quantity}' data-image='${product.image}'>
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </button>
+                <button class='add-to-wishlist' data-id='${product.id}' data-name='${product.name}' data-price='${product.price}' data-image='${product.image}'>
+                    <i class="fas fa-heart"></i> Wishlist
+                </button>
+            </div>
+        `;
+    });
+
+    attachEventListeners();
+}
+
+function attachEventListeners() {
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        button.addEventListener("click", function () {
+            let productData = {
+                id: this.getAttribute("data-id"),
+                name: this.getAttribute("data-name"),
+                price: this.getAttribute("data-price"),
+                quantity: this.getAttribute("data-quantity"),
+                image: this.getAttribute("data-image")
+            };
+
+            fetch("add_to_cart.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(productData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.success ? "✅ Product added to cart!" : "❌ Failed to add product.");
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+
+    document.querySelectorAll(".add-to-wishlist").forEach(button => {
+        button.addEventListener("click", function () {
+            let productData = {
+                id: this.getAttribute("data-id"),
+                name: this.getAttribute("data-name"),
+                price: this.getAttribute("data-price"),
+                image: this.getAttribute("data-image")
+            };
+
+            fetch("add_to_wishlist.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(productData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.success ? "✅ Added to Wishlist!" : "❌ Failed to add to Wishlist.");
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    });
+}
+
+function searchProducts() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let filtered = products.filter(p => p.name.toLowerCase().includes(input));
+    displayProducts(filtered);
+}
+
+function filterCategory(category) {
+    let filtered = products.filter(p => p.category === category);
+    displayProducts(filtered);
+}
+
+window.onload = () => displayProducts();
+
+   </script>
+</body>
+</html>

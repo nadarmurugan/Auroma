@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now - Checkout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+  /* General Styles */
+body {
+    font-family: 'Dancing Script', cursive;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #6a11cb, #2575fc);
+    text-align: center;
+    color: white;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fffefe;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.logo i {
+    margin-right: 10px;
+    color: #b76e79;
+}
+
+/* Navigation Icons */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-icon {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.nav-icon:hover {
+    transform: scale(1.2);
+    color: #f7f1e3;
+}
+
+/* Back Button */
+.back-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.back-btn i {
+    margin-right: 5px;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-icons {
+        margin-top: 10px;
+        gap: 10px;
+    }
+
+    .back-btn {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+.container {
+    max-width: 800px;
+    margin: 100px auto 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+/* Cart Items */
+.cart-items {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Payment Options */
+.payment-options {
+    margin-top: 25px;
+    text-align: left;
+}
+
+.payment-options label {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.payment-options input {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+/* Button Container */
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    background: #ffcc00;
+    color: black;
+    padding: 14px 25px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff9900;
+}
+
+/* Bill Container */
+.bill-container {
+    margin-top: 25px;
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-spray-can"></i> Auroma
+        </div>
+    
+        <nav class="nav-icons">
+            <button class="back-btn" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+    
+            <a href="home.html" class="nav-icon" title="Home">
+                <i class="fas fa-home"></i>
+            </a>
+            <a href="products.html" class="nav-icon" title="Products">
+                <i class="fas fa-box-open"></i>
+            </a>
+            <a href="cart.html" class="nav-icon" title="Cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="wish.html" class="nav-icon" title="Wishlist">
+                <i class="fas fa-heart"></i>
+            </a>
+            <a href="profile.html" class="nav-icon" title="Profile">
+                <i class="fas fa-user"></i>
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Checkout</h2>
+
+        <div class="cart-items">
+            <h3>Your Cart:</h3>
+            <div id="cart-container">
+                <p>Loading cart items...</p>
+            </div>
+            <p id="total-price" style="display: none;"></p>
+        </div>
+
+        <div class="payment-options">
+            <h3>Select Payment Method:</h3>
+            <label><input type="radio" name="payment" value="credit-card"> <i class="fas fa-credit-card"></i> Credit Card</label>
+            <label><input type="radio" name="payment" value="paypal"> <i class="fab fa-paypal"></i> PayPal</label>
+            <label><input type="radio" name="payment" value="upi"> <i class="fas fa-mobile-alt"></i> UPI</label>
+            <label><input type="radio" name="payment" value="cod"> <i class="fas fa-truck"></i> Cash on Delivery</label>
+        </div>
+
+        <div class="button-container">
+            <button id="buy-now"><i class="fas fa-shopping-cart"></i> Buy Now</button>
+        </div>
+
+        <div class="bill-container">
+            <button id="download-bill"><i class="fas fa-file-invoice"></i> Download Bill</button>
+            <button id="download-pdf"><i class="fas fa-file-pdf"></i> Download PDF</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script>
+     src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Fetch cart items on page load
+    fetchCartItems();
+
+    // Buy Now button click event
+    document.getElementById("buy-now").addEventListener("click", processPayment);
+
+    // Download Bill button click event
+    document.getElementById("download-bill").addEventListener("click", downloadBill);
+
+
+    document.getElementById("download-pdf").addEventListener("click", downloadBillAsPDF);
+
+});
+
+// Fetch and display cart items
+function fetchCartItems() {
+    fetch("fetch_cart.php")
+        .then(response => response.json())
+        .then(data => {
+            let container = document.getElementById("cart-container");
+            let totalPriceElement = document.getElementById("total-price");
+            let buyNowButton = document.getElementById("buy-now");
+            container.innerHTML = "";
+
+            if (!data.items || data.items.length === 0) {
+                container.innerHTML = "<p>Your cart is empty.</p>";
+                totalPriceElement.style.display = "none";
+                buyNowButton.style.display = "none";
+                return;
+            }
+
+            let billContent = "Invoice - Your Store\n\n";
+            data.items.forEach(item => {
+                let price = parseFloat(item.price);
+                container.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="${item.name}">
+                        <p><strong>${item.name}</strong></p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Price: ₹${price.toFixed(2)}</p>
+                    </div>
+                `;
+                billContent += `${item.name} - ₹${price.toFixed(2)} (x${item.quantity})\n`;
+            });
+
+            totalPriceElement.innerHTML = `<strong>Total Price: ₹${data.total_price.toFixed(2)}</strong>`;
+            totalPriceElement.style.display = "block";
+            buyNowButton.style.display = "block";
+
+            sessionStorage.setItem("billData", billContent + `\nTotal: ₹${data.total_price.toFixed(2)}`);
+        })
+        .catch(error => console.error("Error fetching cart data:", error));
+}
+
+// Process Payment
+function processPayment() {
+    let selectedPayment = document.querySelector('input[name="payment"]:checked');
+    let totalPriceElement = document.getElementById("total-price");
+
+    if (!selectedPayment) {
+        alert("Please select a payment method.");
+        return;
+    }
+
+    let paymentMethod = selectedPayment.value;
+    let totalPriceText = totalPriceElement.textContent.replace("Total Price: ₹", "").trim();
+    let totalPrice = parseFloat(totalPriceText) || 0;
+    let currentDateTime = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+    if (totalPrice <= 0) {
+        alert("Invalid total price. Please check your cart.");
+        return;
+    }
+
+    // Send payment data to the server
+    fetch("store_payment.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `payment_method=${encodeURIComponent(paymentMethod)}&total_price=${totalPrice}&date_time=${encodeURIComponent(currentDateTime)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.status === "success") {
+            clearCart();
+            window.location.href = "thankyou.html"; // Redirect to thank-you page
+        }
+    })
+    .catch(error => console.error("Payment error:", error));
+}
+
+// Clear cart after successful payment
+function clearCart() {
+    fetch("clear_cart.php")
+        .then(() => console.log("Cart cleared"))
+        .catch(error => console.error("Error clearing cart:", error));
+}
+
+function downloadBill() {
+    let billData = sessionStorage.getItem("billData");
+    if (!billData) {
+        alert("No items in the cart to generate a bill.");
+        return;
+    }
+
+    let storeDetails = `
+===================================
+        A U R O M A   S T O R E    
+===================================
+Address: 123, Business Street, City
+Contact: +91 98765 43210
+GSTIN: 22AAAAA0000A1Z5
+-----------------------------------
+`;
+
+    let footer = `
+-----------------------------------
+Thank you for shopping with us!   
+Visit again: www.auroma-store.com
+===================================
+`;
+
+    let fullBill = storeDetails + "\n" + billData + "\n" + footer;
+
+    let blob = new Blob([fullBill], { type: "text/plain" });
+    let link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "Invoice_AUROMA.txt";
+    link.click();
+}
+
+
+
+
+function downloadBillAsPDF() {
+    let billData = sessionStorage.getItem("billData");
+    if (!billData) {
+        alert("No items in the cart to generate a bill.");
+        return;
+    }
+
+    // Ensure jsPDF is properly initialized
+    const { jsPDF } = window.jspdf;
+    let doc = new jsPDF();
+
+    // Header: Store Details with Styling
+    doc.setFillColor(240, 240, 240); // Light Gray Background
+    doc.rect(10, 10, 190, 25, "F"); // Draw Rectangle for Header
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(50, 50, 50);
+    doc.text(" AUROMA STORE", 75, 20);
+    
+    doc.setFontSize(11);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(80, 80, 80);
+    doc.text("123, Shopping Street, Mumbai, India", 65, 28);
+    doc.text(" +91 98765 43210 |  GSTIN: 29ABCDE1234F1Z5", 50, 34);
+
+    // Draw Separator Line
+    doc.setDrawColor(180);
+    doc.line(10, 40, 200, 40); 
+
+    // Invoice Title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.setTextColor(30, 30, 30);
+    doc.text(" INVOICE", 90, 50);
+
+    // Items Section Header
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(60, 60, 60);
+    doc.text("Items Purchased", 15, 60);
+
+    doc.setDrawColor(160);
+    doc.line(10, 65, 200, 65); // Line below "Items Purchased"
+
+    // Items List
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(0, 0, 0);
+    let lines = billData.split("\n");
+    let y = 72;
+
+    lines.forEach((line, index) => {
+        if (index === lines.length - 1) {
+            doc.setFont("helvetica", "bold");
+            doc.setTextColor(200, 0, 0); // Highlight total price
+        }
+        doc.text(line, 15, y);
+        y += 8; // Adjust line spacing
+    });
+
+    // Footer Section
+    doc.setDrawColor(180);
+    doc.line(10, y + 5, 200, y + 5); 
+
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(11);
+    doc.setTextColor(100, 100, 100);
+    doc.text(" Thank you for shopping with Auroma!", 60, y + 15);
+    doc.text("Visit Again! ", 85, y + 22);
+
+    // Save the PDF
+    doc.save("Invoice_Auroma.pdf");
+}
+
+
+
+// Go back to the previous page
+function goBack() {
+    window.history.back();
+}
+
+  </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</body>
+</html>
